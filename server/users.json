@@ -1,0 +1,55 @@
+[
+  {
+    "name": "Admin User",
+    "email": "admin@cusit.edu.pk",
+    "password": "$2a$10$8B8lWOUzFgfCzKUSokiHyOa8MLfHXB6fM8OKq5GPqVuLKM2hVgL4m",
+    "role": "admin",
+    "phone": "03001234567",
+    "department": "Administration",
+    "isActive": true,
+    "createdAt": { "$date": "2026-05-14T00:00:00Z" },
+    "updatedAt": { "$date": "2026-05-14T00:00:00Z" }
+  },
+  {
+    "name": "Student 1",
+    "email": "student1@cusit.edu.pk",
+    "password": "$2a$10$8B8lWOUzFgfCzKUSokiHyOa8MLfHXB6fM8OKq5GPqVuLKM2hVgL4m",
+    "role": "student",
+    "phone": "03001234568",
+    "department": "CS",
+    "semester": 6,
+    "studentId": "2020-CS-001",
+    "registrationNumber": "CS-2020-001",
+    "isActive": true,
+    "createdAt": { "$date": "2026-05-14T00:00:00Z" },
+    "updatedAt": { "$date": "2026-05-14T00:00:00Z" }
+  },
+  {
+    "name": "Student 2",
+    "email": "student2@cusit.edu.pk",
+    "password": "$2a$10$8B8lWOUzFgfCzKUSokiHyOa8MLfHXB6fM8OKq5GPqVuLKM2hVgL4m",
+    "role": "student",
+    "phone": "03001234569",
+    "department": "SE",
+    "semester": 5,
+    "studentId": "2020-SE-001",
+    "registrationNumber": "SE-2020-001",
+    "isActive": true,
+    "createdAt": { "$date": "2026-05-14T00:00:00Z" },
+    "updatedAt": { "$date": "2026-05-14T00:00:00Z" }
+  },
+  {
+    "name": "Student 3",
+    "email": "student3@cusit.edu.pk",
+    "password": "$2a$10$8B8lWOUzFgfCzKUSokiHyOa8MLfHXB6fM8OKq5GPqVuLKM2hVgL4m",
+    "role": "student",
+    "phone": "03001234570",
+    "department": "CS",
+    "semester": 7,
+    "studentId": "2020-CS-002",
+    "registrationNumber": "CS-2020-002",
+    "isActive": true,
+    "createdAt": { "$date": "2026-05-14T00:00:00Z" },
+    "updatedAt": { "$date": "2026-05-14T00:00:00Z" }
+  }
+]
