@@ -219,3 +219,70 @@ export const getEventRegistrations = async (req, res) => {
     res.json({ success: false, message: error.message });
   }
 };
+
+// Update Event (Admin)
+export const updateEvent = async (req, res) => {
+  try {
+    const { eventId } = req.params;
+    const {
+      title,
+      description,
+      eventDate,
+      location,
+      capacity,
+      category,
+      status,
+    } = req.body;
+
+    const event = await eventModel.findByIdAndUpdate(
+      eventId,
+      {
+        title,
+        description,
+        eventDate,
+        location,
+        capacity,
+        category,
+        status,
+        updatedAt: Date.now(),
+      },
+      { new: true },
+    );
+
+    if (!event) {
+      return res.json({ success: false, message: "Event not found" });
+    }
+
+    res.json({
+      success: true,
+      message: "Event updated successfully",
+      event,
+    });
+  } catch (error) {
+    res.json({ success: false, message: error.message });
+  }
+};
+
+// Delete Event (Admin)
+export const deleteEvent = async (req, res) => {
+  try {
+    const { eventId } = req.params;
+
+    // Delete all registrations for this event first
+    await eventRegistrationModel.deleteMany({ eventId });
+
+    // Delete the event
+    const event = await eventModel.findByIdAndDelete(eventId);
+
+    if (!event) {
+      return res.json({ success: false, message: "Event not found" });
+    }
+
+    res.json({
+      success: true,
+      message: "Event deleted successfully",
+    });
+  } catch (error) {
+    res.json({ success: false, message: error.message });
+  }
+};

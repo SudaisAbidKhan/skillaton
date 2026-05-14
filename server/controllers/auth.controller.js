@@ -177,3 +177,46 @@ export const updateProfile = async (req, res) => {
     res.json({ success: false, message: error.message });
   }
 };
+
+// Get All Users (Admin)
+export const getAllUsers = async (req, res) => {
+  try {
+    const { role } = req.query;
+    let filter = {};
+
+    if (role) filter.role = role;
+
+    const users = await userModel
+      .find(filter)
+      .select("-password")
+      .sort({ createdAt: -1 });
+
+    res.json({ success: true, data: users });
+  } catch (error) {
+    res.json({ success: false, message: error.message });
+  }
+};
+
+// Update User Status (Admin)
+export const updateUserStatus = async (req, res) => {
+  try {
+    const { userId } = req.params;
+    const { isActive } = req.body;
+
+    if (typeof isActive !== "boolean") {
+      return res.json({ success: false, message: "Invalid status value" });
+    }
+
+    const user = await userModel
+      .findByIdAndUpdate(userId, { isActive }, { new: true })
+      .select("-password");
+
+    if (!user) {
+      return res.json({ success: false, message: "User not found" });
+    }
+
+    res.json({ success: true, message: "User status updated", user });
+  } catch (error) {
+    res.json({ success: false, message: error.message });
+  }
+};

@@ -8,6 +8,8 @@ import {
   getStudentEventRegistrations,
   cancelEventRegistration,
   getEventRegistrations,
+  updateEvent,
+  deleteEvent,
 } from "../controllers/event.controller.js";
 
 const router = express.Router();
@@ -23,6 +25,8 @@ router.delete("/registration/:id", userAuth, cancelEventRegistration);
 
 // Admin routes
 router.post("/create", userAuth, createEvent);
+router.put("/:eventId", userAuth, updateEvent);
+router.delete("/:eventId", userAuth, deleteEvent);
 router.get("/:eventId/registrations", userAuth, getEventRegistrations);
 
 export default router;

@@ -1,5 +1,4 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-import { Suspense, lazy } from "react";
 
 // Auth Pages
 import Login from "./Pages/auth/Login.jsx";
@@ -11,16 +10,15 @@ import StudentEvents from "./Pages/student/StudentEvents.jsx";
 import StudentFYP from "./Pages/student/StudentFYP.jsx";
 import StudentProfile from "./Pages/student/StudentProfile.jsx";
 
-// Home Pages
-import Home from "./Pages/Home";
-import About from "./Pages/About";
+// Admin Pages
+import AdminDashboard from "./Pages/admin/AdminDashboard.jsx";
+import ManageComplaints from "./Pages/admin/ManageComplaints.jsx";
+import ManageEvents from "./Pages/admin/ManageEvents.jsx";
+import ManageUsers from "./Pages/admin/ManageUsers.jsx";
+import Announcements from "./Pages/admin/Announcements.jsx";
+import ManageFYP from "./Pages/admin/ManageFYP.jsx";
 
-// Placeholder Admin/Teacher pages
-const AdminDashboard = () => (
-  <div className="min-h-screen bg-slate-900 text-white p-6">
-    <h1>Admin Dashboard - Coming Soon</h1>
-  </div>
-);
+// Placeholder Teacher page
 const TeacherDashboard = () => (
   <div className="min-h-screen bg-slate-900 text-white p-6">
     <h1>Teacher Dashboard - Coming Soon</h1>
@@ -31,9 +29,8 @@ function App() {
   return (
     <div>
       <Routes>
-        {/* Public Routes */}
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
+        {/* Auth Routes */}
+        <Route path="/" element={<Login />} />
         <Route path="/login" element={<Login />} />
 
         {/* Student Routes */}
@@ -45,6 +42,11 @@ function App() {
 
         {/* Admin Routes */}
         <Route path="/admin/dashboard" element={<AdminDashboard />} />
+        <Route path="/admin/complaints" element={<ManageComplaints />} />
+        <Route path="/admin/events" element={<ManageEvents />} />
+        <Route path="/admin/users" element={<ManageUsers />} />
+        <Route path="/admin/announcements" element={<Announcements />} />
+        <Route path="/admin/fyp" element={<ManageFYP />} />
 
         {/* Teacher Routes */}
         <Route path="/teacher/dashboard" element={<TeacherDashboard />} />
